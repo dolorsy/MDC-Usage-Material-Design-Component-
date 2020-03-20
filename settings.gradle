@@ -1,0 +1,2 @@
+rootProject.name='MDC Usage'
+include ':app'
