@@ -12,7 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -20,6 +22,7 @@ import butterknife.OnClick;
 
 public class FloatingActionButtonUsage extends AppCompatActivity {
     boolean isOpen;
+
     Animation openAnim,closeAnim,rotait;
     @BindView(R.id.fab)
     FloatingActionButton mainFAB;
@@ -35,6 +38,8 @@ public class FloatingActionButtonUsage extends AppCompatActivity {
     TextView textView2;
     @BindView(R.id.subMenu)
     ConstraintLayout subMenu;
+    @BindView(R.id.FAB_main_layout)
+    ConstraintLayout mainLayout;
 
 
     @Override
@@ -51,15 +56,22 @@ public class FloatingActionButtonUsage extends AppCompatActivity {
         subMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onViewClicked();
-                Toast.makeText(getApplicationContext(),"subMenu Clicked",Toast.LENGTH_SHORT).show();
+                if(isOpen){
+                    onViewClicked();
+                    makeShortToast("subMenu Clicked");
+                }
+
+
             }
         });
         subMenu.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                makeShortToast("onLongClicked");
-                onViewClicked();
+                if(isOpen){
+                    makeShortToast("onLongClicked");
+                    onViewClicked();
+                }
+
                 return false;
             }
         });
@@ -69,27 +81,25 @@ public class FloatingActionButtonUsage extends AppCompatActivity {
     @OnClick(R.id.fab)
     public void onViewClicked() {
         if(isOpen){
+            Snackbar snackbar = Snackbar.make(mainLayout,"Snack Bar Shown",Snackbar.LENGTH_SHORT);
+            snackbar.setAction("A Toast?",view -> {makeShortToast("Snack Bar MSG");});
+            snackbar.show();
             mainFAB.setAnimation(rotait);
-            mainFAB.startAnimation(rotait);
-            subMenu.clearAnimation();
             subMenu.setAnimation(closeAnim);
-            subMenu.startAnimation(closeAnim);
-            //floatingActionButton2.setAnimation(closeAnim);
             floatingActionButton3.setAnimation(closeAnim);
             textView2.setAnimation(closeAnim);
             textView3.setAnimation(closeAnim);
-            floatingActionButton2.getAnimation();
-
+            mainFAB.startAnimation(rotait);
+            subMenu.startAnimation(closeAnim);
             isOpen = false;
         }else{
-            mainFAB.startAnimation(rotait);
-            subMenu.clearAnimation();
             subMenu.setAnimation(openAnim);
-            subMenu.startAnimation(openAnim);
             floatingActionButton2.setAnimation(openAnim);
             floatingActionButton3.setAnimation(openAnim);
             textView2.setAnimation(openAnim);
             textView3.setAnimation(openAnim);
+            mainFAB.startAnimation(rotait);
+            subMenu.startAnimation(openAnim);
             isOpen = true;
         }
     }
