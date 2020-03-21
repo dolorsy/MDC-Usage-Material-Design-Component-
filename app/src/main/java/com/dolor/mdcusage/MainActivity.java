@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        Toast.makeText(getApplicationContext(),"onClick Invoked",Toast.LENGTH_LONG).show();
         switch(v.getId()){
             case R.id.floating_action_button:
                 Intent FABIntent = new Intent(getApplicationContext(), FloatingActionButtonUsage.class);
