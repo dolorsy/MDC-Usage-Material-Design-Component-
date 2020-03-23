@@ -12,9 +12,20 @@
             android:icon="@drawable/ic_audiotrack_light"/>
     </menu>
 </item>
-    <item
-        android:id="@+id/media_route_menu_item"
-        android:title="Cast"
-        app:actionProviderClass="androidx.mediarouter.app.MediaRouteActionProvider"
-        tools:icon="@drawable/mr_button_light" />
+    <item android:title="Section2">
+        <menu>
+            <item
+                android:id="@+id/media_route_menu_item"
+                android:title="Cast"
+                app:actionProviderClass="androidx.mediarouter.app.MediaRouteActionProvider"
+                tools:icon="@drawable/mr_button_light"/>
+            <item android:title="New Mail"
+                android:icon="@drawable/send_mail"/>
+            <item android:title="New Cast"
+                android:icon="@drawable/ic_mr_button_connected_15_light"/>
+            <item android:title="New Song"
+                android:icon="@drawable/ic_audiotrack_light"/>
+        </menu>
+
+    </item>
 </menu>

@@ -17,8 +17,9 @@
                 android:id="@+id/tool_bar"
                 android:layout_width="match_parent"
                 android:layout_height="?android:attr/actionBarSize"
-
+                app:navigationIcon="@drawable/ic_watch_later_black_24dp"
                 />
+
         </com.google.android.material.appbar.AppBarLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 <com.google.android.material.navigation.NavigationView
