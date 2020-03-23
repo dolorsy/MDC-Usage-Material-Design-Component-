@@ -16,7 +16,7 @@ import androidx.appcompat.widget.Toolbar;
 import com.google.android.material.navigation.NavigationView;
 
 public class SeekBarUsage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-   // private NavigationView navigationView;
+    private NavigationView navigationView;
 private DrawerLayout drawerLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +24,7 @@ private DrawerLayout drawerLayout;
         setContentView(R.layout.activity_seek_bar_usage);
 
         drawerLayout = findViewById(R.id.drawer_layout);
-        //navigationView = findViewById(R.id.navigation_view);
+        navigationView = findViewById(R.id.navigation_view);
         Toolbar toolbar = findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
         /*ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(
@@ -36,7 +36,7 @@ private DrawerLayout drawerLayout;
        // drawerLayout.addDrawerListener(actionBarDrawerToggle);
 
        // actionBarDrawerToggle.syncState();
-        //navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setNavigationItemSelectedListener(this);
         toolbar.setNavigationOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.START));
     }
 
