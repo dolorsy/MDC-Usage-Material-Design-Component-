@@ -9,18 +9,20 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorPrimary"
+        app:liftOnScroll="true"
         >
-
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            >
 
             <androidx.appcompat.widget.Toolbar
+                android:id="@+id/main_toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:collapseIcon="@drawable/ic_mr_button_connected_15_light"
+                android:layout_height="?attr/actionBarSize"
                 />
-
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
